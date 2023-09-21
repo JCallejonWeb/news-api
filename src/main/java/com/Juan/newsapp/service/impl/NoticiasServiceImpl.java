@@ -1,7 +1,6 @@
 package com.Juan.newsapp.service.impl;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Random;
 
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.client.WebClient;
 
 import com.Juan.newsapp.entity.Noticias;
 import com.Juan.newsapp.model.NoticiasApiResponse;
@@ -52,6 +50,11 @@ public class NoticiasServiceImpl implements NoticiasService {
 		
 		return noticiasRepository.save(noticia);
 		
+	}
+
+	@Override
+	public List<Noticias> getNoticias() {
+		return noticiasRepository.findTop6ByOrderByFechaPublicacionDesc();
 	}
 	
 }

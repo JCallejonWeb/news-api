@@ -14,4 +14,6 @@ public interface NoticiasService {
 	
 	Noticias saveNoticias(NoticiasApiResponse noticiaApi);
 	
+	List<Noticias> getNoticias();
+	
 }
